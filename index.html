@@ -6,7 +6,13 @@
     <title>Nicholas SanMartin</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/d62c060d0c.js" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("rxH7LiEWJg3iisMof");
+        })();
+    </script>
 </head>
 <body>
     <section id="landing">
@@ -33,8 +39,9 @@
                     <a href="#contact" class="
                     link--anchor
                     link__hover-effect
-                    link__hover-effect--grey
-                    ">Contact</a>
+                    link__hover-effect--grey"
+                    onclick="toggleModal()"
+                    >Contact</a>
                 </li>
                 <li class="nav__link link">
                     <a href="#" class="
@@ -44,39 +51,88 @@
             </ul>
         </nav>
         <div></div>
-        <div class="container">
-            <div class="row">
-                <header class="header">
-                    <div class="header__info">
-                        <h1 class="title">Hello</h1>
-                        <h1 class="title">My name is <span class="blue"> Nick</span></h1>
-                        <p class="header__para">I am a <b class="blue"> Frontend Software Engineer</b> with a 
-                            passion for building applications that users 
-                            can experience on both computer and mobile devices.
-                            <br>
-                            Here is a little <a href="#contact" class="blue"> <b> about me.</b></a>
-                        </p>
-                        <div class="social__box">
-                            <a href="https://www.linkedin.com/in/nick-san-martin-b0880a12b/" target="_blank" class="social_img social click">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/Nicksm98" target="_blank" class="social_img social click">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="" target="_blank" class="social_img social click" >
-                                <i class="fa-regular fa-file-lines"></i>
-                            </a>
-                        </div>
+        <header class="header">
+            <div class="header__info">
+                <h1 class="title">Hello</h1>
+                <h1 class="title">My name is <span class="blue"> Nick</span></h1>
+                <p class="header__para">I am a <b class="blue"> Frontend Software Engineer</b> with a 
+                    passion for building applications that users 
+                    can experience on both computer and mobile devices.
+                    <br>
+                    Here is a little <a href="#contact" class="blue"  onclick="toggleModal()"> <b> about me.</b></a>
+                </p>
+                <div class="social__box">
+                    <a href="https://www.linkedin.com/in/nick-san-martin-b0880a12b/" target="_blank" class="social_img social click">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Nicksm98" target="_blank" class="social_img social click">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="" target="_blank" class="social_img social click" >
+                        <i class="fa-regular fa-file-lines"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <button class="mail__btn click" onclick="toggleModal()">
+            <i class="fa-regular fa-envelope"></i>
+        </button>
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click"></div>
+        </a>
+        <div class="modal">
+            <div class="half left">
+                <h3 class="modal__title">Some information about me.</h3>
+                <h4 class="modal__sub-title">Frontend Software Engineer</h4>
+                <p class="modal__para">Hello, I'm 26 years old and have a passion for <span class="blue"> technology.</span> I recently started learning to <span class="blue"> build websites and applications</span> that users can experience on both <span class="blue"> desktop & mobile devices</span> and I am excited to break in to my first position towards a <span class="blue"> frontend software developer.</span></p>
+                <div>
+                    <div class="modal__languages">
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/icons8-html-96.png" alt="">
+                            <span class="language__name">HTML</span>
+                        </figure>
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/icons8-css-96.png" alt="">
+                            <span class="language__name">CSS</span>
+                        </figure>
                     </div>
-                </header>
-                <button class="mail__btn click">
-                    <i class="fa-regular fa-envelope"></i>
-                </button>
-                <a href="#projects" class="scroll">
-                    <div class="scroll__icon click">
-
+                    <div class="modal__languages">
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/icons8-javascript-96.png"alt="">
+                            <span class="language__name">JavaScript</span> 
+                        </figure>
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/python.png" alt="">
+                            <span class="language__name">Python</span>
+                        </figure>
                     </div>
-                </a>
+                </div>
+            </div>
+            <div class="half right">
+                <i class="fa-solid fa-times overlay__exit click" onclick="toggleModal()"></i>
+                <h3 class="right__title">Come chat with me!</h3>
+                <h4 class="right__sub-title">I'm currently open to new opportunities.</h4>
+                <form id="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input class="input" name="user_name" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label"">Email</label>
+                        <input class="input" name="user_email" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea class="input" name="message" type="text" required></textarea>
+                    </div>
+                    <button id="contact__submit" class="submit__btn">Send it my way</button>
+                </form>
+                <div class="overlay overlay__loading">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+                <div class="overlay overlay__success">
+                    Thanks for the message, I am excited to meet with you!
+                </div>
             </div>
         </div>
     </section>
@@ -84,10 +140,11 @@
         <div class="container">
             <div class="row">
                 <h1 class="section__title">Here are a few of my <span class="blue"> Projects</span></h1>
-                <ul class="projects__list">    
+                <ul class="projects__list">
                     <li class="project">
                         <div class="project__wrapper">
                             <img class="project__img" src="./assets/firstweb.PNG" alt="">
+                            <div class="project__bg"></div>
                             <div class="project__description">
                                 <h3 class="project__title">
                                     First Web Design
@@ -112,6 +169,7 @@
                     <li class="project">
                         <div class="project__wrapper">
                             <img class="project__img" src="./assets/ecommerce.PNG" alt="">
+                            <div class="project__bg"></div>
                             <div class="project__description">
                                 <h3 class="project__title">
                                     Ecommerce project
@@ -136,6 +194,7 @@
                     <li class="project">
                         <div class="project__wrapper">
                             <img class="project__img" src="./assets/portforlio.PNG" alt="">
+                            <div class="project__bg"></div>
                             <div class="project__description">
                                 <h3 class="project__title">
                                     Practice Eportfolio
@@ -143,7 +202,7 @@
                                 <h4 class="project__sub-title">
                                     HTML, CSS
                                 </h4>
-                                <p class=" project__para">
+                                <p class="project__para">
                                     During this project, I was making a practice eportfolio and I was taught to create hover effects for certain elements such as this one, how to make a click effect for buttons, etc.
                                 </p>
                                 <div class="project__link--box">
@@ -160,6 +219,7 @@
                     <li class="project">
                         <div class="project__wrapper">
                             <img class="project__img" src="./assets/week2.PNG" alt="">
+                            <div class="project__bg"></div>
                             <div class="project__description">
                                 <h3 class="project__title">
                                     Week 2 project
@@ -186,43 +246,42 @@
         </div>
     </section>
     <footer>
-        <div class="row footer__row">
-            <figure class="footer__logo--wrapper">
-                <img class="footer__logo" src="./assets/logo.svg" alt="">
-            </figure>
-            <div class="footer__divider"></div>
-            <div class="footer__links">
-                <div class="footer__link link">
-                    <a href="https://www.linkedin.com/in/nick-san-martin-b0880a12b/" target="_blank" class="
-                    footer__anchor
-                    link__hover-effect
-                    link__hover-effect--white
-                    ">Linkdin</a>
-                </div>
-                <div class="footer__link link">
-                    <a href="https://github.com/Nicksm98" target="_blank" class="
-                    footer__anchor
-                    link__hover-effect
-                    link__hover-effect--white
-                    ">Github</a>
-                </div>
-                <div class="footer__link link">
-                    <a href="#" class="
-                    footer__anchor
-                    link__hover-effect
-                    link__hover-effect--white
-                    ">Contact</a>
-                </div>
-                <div class="footer__link link">
-                    <a href="#" target="_blank" class="
-                    footer__anchor
-                    link__hover-effect
-                    link__hover-effect--white
-                    ">Resume</a>
-                </div>
+        <figure class="footer__logo--wrapper">
+            <img class="footer__logo" src="./assets/logo.svg" alt="">
+        </figure>
+        <div class="footer__divider"></div>
+        <div class="footer__links">
+            <div class="footer__link link">
+                <a href="https://www.linkedin.com/in/nick-san-martin-b0880a12b/" target="_blank" class="
+                footer__anchor
+                link__hover-effect
+                link__hover-effect--white
+                ">Linkdin</a>
             </div>
-            <p class="created__by blue">Nicholas SanMartin</p>
+            <div class="footer__link link">
+                <a href="https://github.com/Nicksm98" target="_blank" class="
+                footer__anchor
+                link__hover-effect
+                link__hover-effect--white
+                ">Github</a>
+            </div>
+            <div class="footer__link link">
+                <a href="#" class="
+                footer__anchor
+                link__hover-effect
+                link__hover-effect--white"
+                onclick="toggleModal()"
+                >Contact</a>
+            </div>
+            <div class="footer__link link">
+                <a href="#" target="_blank" class="
+                footer__anchor
+                link__hover-effect
+                link__hover-effect--white
+                ">Resume</a>
+            </div>
         </div>
+        <p class="created__by blue">Nicholas SanMartin</p>
     </footer>
 </body>
 </html>
