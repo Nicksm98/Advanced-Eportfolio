@@ -57,9 +57,6 @@ section {
     color: rgb(4, 138, 201);
 }
 
-img {
-    width: 100%;
-}
 
 .link {
     position: relative;
@@ -268,9 +265,10 @@ nav,
     border: none;
     background-color: pink;
     color: rgb(2, 12, 4);
-    position: absolute;
+    position: fixed;
     bottom: 32px;
     right: 40px;
+    z-index: 100;
 }
 
 .scroll {
@@ -376,11 +374,12 @@ nav,
 .modal__sub-title,
 .right__sub-title {
     margin: 12px 0 24px 0;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .modal__para {
+    font-weight: 700;
     line-height: 2;
     padding-bottom: 16px;
     max-width: 350px;
@@ -392,9 +391,13 @@ nav,
     justify-content: space-around;
 }
 
+.language {
+    width: 100%;
+}
+
 .language__wrapper {
-    height: 125px;
-    width: 125px;
+    height: 100px;
+    width: 100px;
     margin-bottom: 24px;
     display: flex;
     flex-direction: column;
@@ -652,4 +655,122 @@ footer {
 
 .created__by {
     padding-bottom: 32px;
+}
+
+/* SHAPES */
+
+/* 
+shapes on first row
+height = 15vh
+
+shapes on the second row
+height = 50vh
+
+shapes on the third row
+height = 85vh
+
+shapes on the first column
+width = 5vw
+
+shapes on second colum
+width = 50vw
+
+shapes on the third column
+width = 80vw
+*/
+.shape {
+    position: fixed;
+}
+
+.shape--0 {
+    top: 15vh;
+    left: 5vw;
+}
+
+.shape--1 {
+    top: 15vh;
+    left: 50vw;
+}
+
+.shape--2 {
+    top: 15vh;
+    left: 80vw;
+}
+
+.shape--3 {
+    top: 50vh;
+    left: 5vw;
+}
+
+.shape--4 {
+    top: 50vh;
+    left: 50vw;
+}
+
+.shape--5 {
+    top: 50vh;
+    left: 80vw;
+}
+
+.shape--6 {
+    top: 85vh;
+    left: 5vw;
+}
+
+.shape--7 {
+    top: 85vh;
+    left: 50vw;
+}
+
+.shape--8 {
+    top: 85vh;
+    left: 80vw;
+}
+
+@media (max-width 768px) {
+    .title {
+        font-size: 80px;
+    }
+    .header__para {
+        font-size: 20px;
+    }
+    .modal {
+        top: 0;
+        left: 0;
+        transform: none;
+        height: auto;
+        width: 100%;
+        flex-direction: column-reverse;
+        border-radius: 0;
+    }
+    .modal__half {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 52px;
+    }
+    .header__para {
+        font-size: 18px;
+    }
+    .nav__link:first-child {
+        display: none;
+    }
+    .project__para {
+        display: none;
+    }
+    .project__description {
+        left: 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .project__sub-title {
+        margin-bottom: 8px;
+    }
+    .modal__left {
+        padding: 40px;
+    }
 }
