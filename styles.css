@@ -727,9 +727,12 @@ width = 80vw
     left: 80vw;
 }
 
-@media (max-width 768px) {
+@media (max-width: 768px) {
     .title {
-        font-size: 80px;
+        font-size: 60px;
+    }
+    .section__title {
+        font-size: 40px;
     }
     .header__para {
         font-size: 20px;
@@ -750,12 +753,18 @@ width = 80vw
 
 @media (max-width: 480px) {
     .title {
-        font-size: 52px;
+        font-size: 40px;
+    }
+    .section__title {
+        font-size: 32px;
     }
     .header__para {
         font-size: 18px;
     }
     .nav__link:first-child {
+        display: none;
+    }
+    .scroll__icon {
         display: none;
     }
     .project__para {
@@ -772,5 +781,21 @@ width = 80vw
     }
     .modal__left {
         padding: 40px;
+    }
+    .mail__btn {
+        height: 50px;
+        width: 50px;
+    }
+    .project__title,
+    .project__sub-title,
+    .project__para {
+        display: none;
+    }
+    .footer__links {
+        width: 100%;
+    }
+    .shape {
+        height: 15px;
+        width: 15px;
     }
 }
