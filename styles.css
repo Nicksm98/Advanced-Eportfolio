@@ -848,4 +848,7 @@ width = 80vw
     textarea {
         height: 75px;
     }
+   .git {
+    display: none;
+   }
 }
