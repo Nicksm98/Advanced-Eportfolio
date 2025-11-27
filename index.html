@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicholas SanMartin</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/d62c060d0c.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("rxH7LiEWJg3iisMof");
+        })();
+    </script>
+</head>
+<body>
+    <section id="landing" onmousemove="moveBackground(event)">
+        <nav>
+            <figure class="img__wrapper">
+                <img class="nav__img" src="./assets/logo.svg" alt="">
+            </figure>
+            <ul class="nav__link--list">
+                <li class="nav__link link grey">
+                    <a href="#contact" class="
+                    link--anchor
+                    link__hover-effect
+                    link__hover-effect--grey"
+                    onclick="toggleModal()"
+                    >About</a>
+                </li>
+                <li class="nav__link link grey">
+                    <a href="#projects" class="
+                    link--anchor
+                    link__hover-effect
+                    link__hover-effect--grey
+                    ">Projects</a>
+                </li>
+                <li class="nav__link link grey">
+                    <a href="#contact" class="
+                    link--anchor
+                    link__hover-effect
+                    link__hover-effect--grey"
+                    onclick="toggleModal()"
+                    >Contact</a>
+                </li>
+                <li class="nav__link link">
+                    <a href="#" class="
+                    link--anchor"
+                    onclick="toggleContrast()"
+                    ><i class="fa-solid fa-circle-half-stroke"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <div></div>
+        <header class="header">
+            <div class="header__info">
+                <h1 class="title">Hello</h1>
+                <h1 class="title">My name is <span class="blue"> Nick</span></h1>
+                <p class="header__para">I am a <b class="blue"> Frontend Software Engineer</b> with a 
+                    passion for building applications that users 
+                    can experience on both computer and mobile devices.
+                    <br>
+                    Here is a little <a href="#contact" class="blue click" onclick="toggleModal()"> <b> about me.</b></a>
+                </p>
+                <div class="social__box">
+                    <a href="https://www.linkedin.com/in/nick-san-martin-b0880a12b/" target="_blank" class="social_img social click">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Nicksm98" target="_blank" class="social_img social click">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="./assets/Resume.pdf" target="_blank" class="social_img social click" >
+                        <i class="fa-regular fa-file-lines"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <a href="#">
+            <button class="mail__btn click" onclick="toggleModal()">
+                <i class="fa-regular fa-envelope">
+                </i>
+            </button>
+        </a>
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click"></div>
+        </a>
+        <div class="modal">
+            <div class="half left">
+                <h3 class="modal__title">Some information about me.</h3>
+                <h4 class="modal__sub-title">Frontend Software Engineer</h4>
+                <p class="modal__para">Hello, I'm 27 years old and have a passion for <span class="blue"> technology.</span> I recently started learning to <span class="blue"> build websites and applications</span> that users can experience on both <span class="blue"> desktop & mobile devices</span> and I am excited to break in to my first position towards a <span class="blue"> frontend software developer.</span></p>
+                <div>
+                    <div class="modal__languages">
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/icons8-html-96.png" alt="">
+                            <span class="language__name">HTML</span>
+                        </figure>
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/icons8-css-96.png" alt="">
+                            <span class="language__name">CSS</span>
+                        </figure>
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/react.png" alt="">
+                            <span class="language__name">React</span>
+                        </figure>
+                    </div>
+                    <div class="modal__languages">
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/icons8-javascript-96.png"alt="">
+                            <span class="language__name">JavaScript</span> 
+                        </figure>
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/Nextjs.png" alt="">
+                            <span class="language__name">Next.js</span>
+                        </figure>
+                        <figure class="language__wrapper">
+                            <img class="language" src="/assets/Language Icons/webpack.png" alt="">
+                            <span class="language__name">Webpack</span>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div class="half right">
+                <i class="fa-solid fa-times overlay__exit click" onclick="toggleModal()"></i>
+                <h3 class="right__title">Come chat with me!</h3>
+                <h4 class="right__sub-title">I'm currently open to new opportunities.</h4>
+                <form id="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input class="input" name="user_name" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label"">Email</label>
+                        <input class="input" name="user_email" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea class="input" name="message" type="text" required></textarea>
+                    </div>
+                    <div class="btn_holder">
+                        <button id="contact__submit" class="submit__btn">Send it my way</button>
+                    </div>            
+                </form>
+                <div class="overlay overlay__loading">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+                <div class="overlay overlay__success">
+                    Thanks for the message, I am excited to meet with you!
+                </div>
+            </div>
+        </div>
+        <img src="./assets/semi circle.svg" class="shape shape--0" alt="">
+        <img src="./assets/triangle.svg" class="shape shape--1" alt="">
+        <img src="./assets/squiggly.svg" class="shape shape--2" alt="">
+        <img src="./assets/triangle.svg" class="shape shape--3" alt="">
+        <img src="./assets/circle.svg" class="shape shape--4" alt="">
+        <img src="./assets/triangle.svg" class="shape shape--5" alt="">
+        <img src="./assets/squiggly.svg" class="shape shape--6" alt="">
+        <img src="./assets/triangle.svg" class="shape shape--7" alt="">
+        <img src="./assets/semi circle.svg" class="shape shape--8" alt="">
+    </section>
+    <section id="projects">
+        <div class="container">
+            <div class="row">
+                <h1 class="section__title">Here are a few of my <span class="blue"> Projects</span></h1>
+                <ul class="projects__list">
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/firstweb.PNG" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    First Web Design
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    HTML, CSS
+                                </h4>
+                                <p class="project__para">
+                                    My initial project utilizing HTML and CSS provided a valuable learning experience. I focused on mastering fundamental concepts in both languages, resulting in a simple yet functional website. I prioritized responsiveness, ensuring the project adapted seamlessly to various screen sizes.
+                                </p>
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/New-site" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://nicksm98.github.io/New-site/html%20tutorial/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/ecommerce.PNG" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    Ecommerce project
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    HTML, CSS
+                                </h4>
+                                <p class=" project__para">
+                                    My second project involved the implementation of advanced techniques, including the incorporation of specific links and the strategic placement of code elements.
+                                </p>
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/E-commerce-project" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://nicksm98.github.io/E-commerce-project/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/portforlio.PNG" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    Practice Eportfolio
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    HTML, CSS
+                                </h4>
+                                <p class="project__para">
+                                    For my e-portfolio project, I incorporated interactive elements such as hover effects and click actions to enhance user engagement.
+                                </p>
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/Practice-Eportfolio" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://nicksm98.github.io/Practice-Eportfolio/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/week2.PNG" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    Week 2 project
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    HTML, CSS, JavaScript
+                                </h4>
+                                <p class=" project__para">
+                                    In my final project for week 2, I consolidated my acquired knowledge of HTML, CSS, and JavaScript to create a comprehensive website.
+                                </p>
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/Week-2-Final-Project" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://nicksm98.github.io/Week-2-Final-Project/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div> 
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/movies.PNG" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    React Movies
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    HTML, CSS, JavaScript, React, React Router
+                                </h4>
+                                <p class=" project__para">
+                                    My project focused on developing a movie application utilizing React and React Router. The application dynamically retrieves data from an API and presents it on the user interface.
+                                </p>
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/React-Movies" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://react-movies-beta-nine.vercel.app/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/internship.PNG" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    Internship Project
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    CSS, JavaScript, React, React Router, AOS, Webpack
+                                </h4>
+                                <p class=" project__para">
+                                    This project involved the integration of various tools and technologies, including Webpack for file bundling, AOS for animation effects, and React Router for navigation.
+                                </p>
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/Nick-Internship" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://nick-internship.vercel.app/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/aiproject.png" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    SaaS AI Agent Platform
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    Next.js 15, React, Better Auth, Polar
+                                </h4>
+                                <p class=" project__para">
+                                    An AI-powered video call app that you can set up real-time calls with custom AI agents, 
+                                    generating summaries and transcripts using background jobs, and integrating a full post-call experience 
+                                    including video playback, transcript search, and an AI chat that understands the meeting context.
+                                </p>
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/meetai" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://meetai-3nkx.vercel.app/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/RTB.png" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    Personal Game - Ride The Bus
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    Next.js 15, React 19, TypeScript, Supabase, Tailwind CSS, PostCSS, React Hook Forms
+                                </h4>
+                                <p class=" project__para">
+                                    I just wanted to recreate a classic card game called "Ride The Bus" for my friends and I to play on our time off together.
+                                </p>
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/Ride-The-Bus" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://ride-the-bus-livid.vercel.app/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img class="project__img" src="./assets/GG.png" alt="">
+                            <div class="project__bg"></div>
+                            <div class="project__description">
+                                <h3 class="project__title">
+                                    Personal Game - Golden God
+                                </h3>
+                                <h4 class="project__sub-title">
+                                    Next.js 16, React 19, TypeScript 5, Supabase, Tailwind CSS 4, Lucide React, React Hook Forms, Zod.
+                                </h4>
+                                <p class=" project__para">
+                                    My friends and I love to play Kings Cup when we get together for our annual get together. I wanted to
+                                    create a digital version of the game that was based off of our favorite show to watch as a group with
+                                    my own twist on the rules.
+                                <div class="project__link--box">
+                                    <a href="https://github.com/Nicksm98/Golden-God" target="_blank" class="social__img social click git">
+                                        <i class="fa-brands fa-github"></i>
+                                    </a>
+                                    <a href="https://golden-god.vercel.app/" target="_blank" class="social__img social click">
+                                        <i class="fa-solid fa-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <figure class="footer__logo--wrapper">
+            <img class="footer__logo" src="./assets/logo.svg" alt="">
+        </figure>
+        <div class="footer__divider"></div>
+        <div class="footer__links">
+            <div class="footer__link link">
+                <a href="https://www.linkedin.com/in/nick-san-martin-b0880a12b/" target="_blank" class="
+                footer__anchor
+                link__hover-effect
+                link__hover-effect--white
+                ">Linkdin</a>
+            </div>
+            <div class="footer__link link">
+                <a href="https://github.com/Nicksm98" target="_blank" class="
+                footer__anchor
+                link__hover-effect
+                link__hover-effect--white
+                ">Github</a>
+            </div>
+            <div class="footer__link link">
+                <a href="#" class="
+                footer__anchor
+                link__hover-effect
+                link__hover-effect--white"
+                onclick="toggleModal()"
+                >Contact</a>
+            </div>
+            <div class="footer__link link">
+                <a href="https://1drv.ms/w/s!ArH3CAwpTEcpg6hwt2nYPgusgkCzWA?e=5Pt9wT" target="_blank" class="
+                footer__anchor
+                link__hover-effect
+                link__hover-effect--white
+                ">Resume</a>
+            </div>
+        </div>
+        <p class="created__by blue">Nicholas SanMartin</p>
+    </footer>
+</body>
+</html>
